@@ -9,7 +9,7 @@ connection = Redis()
 
 while True:
     try:
-        data = connection.lpop(QUEUE_NAME)
+        data = connection.rpop(QUEUE_NAME)
         if data:
             print(str(datetime.now()) + "CONSUMER :" + str(json.loads(data)))
     except Exception as e:
